@@ -12,10 +12,22 @@ class Billet
      public function commentStory()
      {
           $PostManager = new PostManager;
-          $postBillet = $PostManager->getOneBillet($_GET['id']);
-         // var_dump($postBillet);
-          //die;
-          require('views/frontend/commentText.php');
-     }
+               if((int) $_GET['id']) 
+               {
+                    $postBillet = $PostManager->getOneBillet($_GET['id']);
+               }
+               else 
+               {
+                   header ('location : index.php?action=home'); 
+               }
+               if($postBillet == null)
+               {
+                    header ('location : index.php?action=home'); 
+               }
+               else
+               {
+                    require('views/frontend/commentText.php');  
+               }
+      }
      
 }

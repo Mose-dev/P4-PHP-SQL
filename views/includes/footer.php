@@ -21,7 +21,7 @@
         
                <div>
                <h2>ADMIN</h2>
-                    <?php if(isset($_SESSION['connexion'])):?>
+                    <?php if(isset($_SESSION['user']) || isset($_SESSION['admin'])  ):?>
                          <a href="index.php?action=deconnexion">Deconnexion</a>
                     <?php else:?>
                          <a href="index.php?action=connexion">Se connecter</a>

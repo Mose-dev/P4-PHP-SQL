@@ -36,10 +36,10 @@
           <?php  endif;?>
      </div>
 </section>
-<section class="postComments"> 
+<section class="postComments">
      <h4 class="postCommentsTitle">Laissez votre commentaire</h4> 
           <form action="index.php?action=addComment" method="post" class="formCommentsUsers">
-               <input type="text" name="post_id" value="<?= $postBillet[0]['post_id']?>">
+               <input type="hidden" name="post_id" value="<?= $postBillet[0]['postId']?>">
                <label for="author">Votre pseudo</label>
                <p><input type="text" name="author" id="author"></p>
                <label for="comment">Votre commentaire</label>
