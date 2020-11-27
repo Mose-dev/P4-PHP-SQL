@@ -18,8 +18,17 @@ class Admin
                {
                     if(password_verify($_POST["password"], $user["password"]) == true)//Vérification du mot de passe
                     {
-                         $_SESSION['connexion'] = $user['id'];
+                         if($user['role'] == 0)
+                         {
+                              $_SESSION['user'] = $user['id'];
+                              header('location: index.php?action=home');
+                         }
+                         else
+                         { 
+                              $_SESSION['admin'] = $user['id'];
                               header('location: index.php?action=dashboard');
+                         }
+                        
                     }
                     else
                     {
@@ -34,7 +43,7 @@ class Admin
      }
      
      public function dashboard(){
-          if(isset($_SESSION['connexion'])) 
+          if(isset($_SESSION['admin'])) 
           {
                require('views/backend/dashboard.php');
           }
@@ -46,7 +55,8 @@ class Admin
      
      public function deconnexion()
      {
-          unset($_SESSION['connexion']);
+          unset($_SESSION['user']);
+          unset($_SESSION['admin']);
           header('location: index.php?action=home');
      }
 }

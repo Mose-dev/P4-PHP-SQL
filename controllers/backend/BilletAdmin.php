@@ -4,7 +4,7 @@ class BilletAdmin
 {
      public function __construct()
      {
-          if(!isset($_SESSION['connexion']))
+          if(!isset($_SESSION['admin']))
           {
                header('location: index.php?action=home');   
           }

@@ -18,7 +18,7 @@ class PostManager extends Manager
      }
      public function getOneBillet($id)
      {
-          $request = Manager::connexion()->prepare("SELECT *, p.id AS postId FROM posts AS p  LEFT JOIN comments  ON  comments.post_id = p.id WHERE p.id= $id");
+          $request = Manager::connexion()->prepare("SELECT *, p.id AS postId FROM posts AS p LEFT JOIN comments ON comments.post_id = p.id WHERE p.id= $id ORDER BY comments.comment_date DESC");
           $request->execute();
           $request->setFetchMode(PDO::FETCH_CLASS, 'posts');
 
