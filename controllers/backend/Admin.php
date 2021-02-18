@@ -1,34 +1,31 @@
 <?php
-//require_once './models/userManager.php';
-
-class Admin
+class Admin //Fonctions de connexion/deconnexion et accès au dashboard.
 {
-
      public function connexion()
      {
-          if(!empty($_POST["email"]) && !empty($_POST["password"]))
+          $title = "Connexion";
+          if(!empty($_POST['email']) && !empty($_POST['password']))
           {
                $userManager = new UserManager;
-               $user = $userManager->getUserByEmail($_POST["email"]);
+               $user = $userManager->getUserByEmail($_POST['email']);
                if($user == false)
                {
-                    echo "Cet utilisateur n'existe pas";
+                    echo "Utilisateur inconnu";
                }
                else 
                {
-                    if(password_verify($_POST["password"], $user["password"]) == true)//Vérification du mot de passe
+                    if(password_verify($_POST['password'], $user['password']) == true)
                     {
                          if($user['role'] == 0)
                          {
                               $_SESSION['user'] = $user['id'];
-                              header('location: index.php?action=home');
+                              header('location: index.php?action=billetSimple');
                          }
                          else
                          { 
-                              $_SESSION['admin'] = $user['id'];
+                              $_SESSION['admin'] = $user['id'] ;
                               header('location: index.php?action=dashboard');
                          }
-                        
                     }
                     else
                     {
@@ -38,11 +35,12 @@ class Admin
           }
           else 
           {
-          require('views/frontend/connexion.php');
+               require('views/frontend/connexion.php');
           }
      }
-     
-     public function dashboard(){
+     public function dashboard()
+     {
+          $title = "Dashboard";
           if(isset($_SESSION['admin'])) 
           {
                require('views/backend/dashboard.php');
@@ -52,7 +50,6 @@ class Admin
                header('location: index.php?action=home');
           }
      }
-     
      public function deconnexion()
      {
           unset($_SESSION['user']);

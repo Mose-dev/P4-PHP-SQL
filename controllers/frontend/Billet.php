@@ -1,16 +1,18 @@
 <?php
-//require_once './models/userManager.php';
-
-class Billet 
+class Billet //Gestion des billets.
 {
+//Affichage des billets.
      public function billetSimple()
      {
+          $title = "Billet simple";
           $PostManager = new PostManager;
           $postBillet = $PostManager->postBillet();
           require('views/frontend/billetSimple.php');
      }
+//Commentaires des billets.
      public function commentStory()
      {
+          $title = "Commentaires";
           $PostManager = new PostManager;
                if((int) $_GET['id']) 
                {
@@ -28,6 +30,12 @@ class Billet
                {
                     require('views/frontend/commentText.php');  
                }
-      }
-     
+     }
+//Commentaires signalés.
+     public function reportComment()
+     {
+          $PostManager = new PostManager;
+          $postBillet = $PostManager->report();
+          require('views/backend/report.php');
+     }
 }

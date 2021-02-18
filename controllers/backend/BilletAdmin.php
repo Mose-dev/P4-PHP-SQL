@@ -1,6 +1,6 @@
 <?php
 
-class BilletAdmin 
+class BilletAdmin//Gestion des billets.
 {
      public function __construct()
      {
@@ -9,19 +9,16 @@ class BilletAdmin
                header('location: index.php?action=home');   
           }
      }
-     
+//Ecrire un billet.     
      public function addBillet()
      {
-          // On teste si le formulaire a été soumis
+          $title = "Ecrire un chapitre";
           if ($_POST)
           {
                if(!empty($_POST['title']) && !empty($_POST['mytextarea']))
                {
-                    // On appelle le Post Manager
                     $postManager = new PostManager;
-                    // On lance la fonction addBillet du Post Manager qui insère dans la bdd.
                     $postManager->addBillet($_POST['title'], $_POST['mytextarea']);
-                    // On redirige l'utilisateur vers la page d'affichage des billets
                     header('Location: index.php?action=billetSimple');  
                }
                else
@@ -31,8 +28,39 @@ class BilletAdmin
           }
           else 
           {
-               // On charge la vue du formulaire si le formulaire n'a pas été soumis
                require('views/backend/addBillet.php');
+          }
+     }
+//Effacer un billet.
+     public function deleteBillet()
+     {
+          $postManager = new PostManager;
+          if(isset($_GET['id']))
+          { 
+               $delete = $postManager->deleteBillet($_GET['id']);
+          }
+          header('location: index.php?action=dashboard');
+     }
+//Editer un billet pour sa correction. 
+     public function displayBillet()
+     {
+          $title = "Corriger un billet";
+          $PostManager = new PostManager;
+          $postBillet = $PostManager->returnBillet($_GET['id']);
+          require('views/backend/correctBillet.php');
+     } 
+//Corriger un billet.      
+     public function correctBillet()
+     {
+          $postManager = new PostManager;
+          if(isset($_GET['id']))
+          { 
+               $postManager->correctBillet($_GET['id'],$_POST['title'], $_POST['mytextarea']);
+               header('location: index.php?action=billetSimple');
+          }
+          else
+          {
+               header('location: index.php?action=billetSimple');
           }
      }
 }
