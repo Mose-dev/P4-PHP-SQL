@@ -1,32 +1,68 @@
 <?php
-//require_once './models/userManager.php';
-
-class Comment 
+class Comment //Gestion des commentaires.
 {
+//Ajouter un commentaire.
      public function addComment()
      {
-                 // On teste si le formulaire a été soumis
-           if ($_POST)
-           {
-                if(!empty($_POST['author']) && !empty($_POST['comment']))
-                {
-                     // On appelle le Post Manager
+          if($_POST)
+          {
+               if(!empty(strip_tags($_POST['author'])) && !empty(strip_tags($_POST['comment'])))
+               {
                      $postManager = new PostManager;
-                     // On lance la fonction commentBillet du Post Manager
-                     $postManager->commentBillet($_POST['post_id'], $_POST['author'], $_POST['comment']);
-                     // On redirige l'utilisateur vers la page d'affichage des commentaires
+                     $postManager->commentBillet($_POST['post_id'], strip_tags($_POST['author']), strip_tags($_POST['comment']));
                      header('Location: index.php?action=commentText&id='.$_POST['post_id'] );  
-                }
-                else
-                {
+               }
+               else
+               {
                      header('location: index.php?action=commentText&id='.$_POST['post_id']);
-                }
-           }
-           else 
-           {
+               }
+          }
+          else 
+          {
                header('location: index.php?action=home');
-           }
+          }
      }
-     
-     
+//Signaler un commentaire.
+     public function reportComment()
+     {
+          if(isset($_GET['id']) && !empty($_GET['id']))
+          {
+               $commentManager = new CommentManager;
+               $commentManager->report($_GET['id']);
+               header('location: index.php?action=home');
+          } 
+     }
+//Affichage des commentaires signalés ( dashboard ).
+     public function getReport()
+     {
+          $title = "Commentaires signalés";
+          $commentManager = new CommentManager;
+          $getComment = $commentManager->getReportComment();
+          require('views/backend/getReport.php');
+     }
+//Conserver un commentaire signalé.
+     public function keepReport()
+     {
+          if(isset($_GET['id']) && !empty($_GET['id']))
+          {
+               $commentManager = new CommentManager;
+               $keep = $commentManager->keepReport($_GET['id']);
+               $_SESSION['error_message'] = array(
+                    "message" => 'Commentaire conservé',
+                    "type"    => 'success'
+               );
+               header('location: index.php?action=report');
+          } 
+     }
+//Eliminer un commentaire signalé.
+     public function deleteReport()
+     {
+          $commentManager = new CommentManager;
+          $deleteComment = $commentManager->deleteComment($_GET['id']);
+          $_SESSION['error_message'] = array(
+               "message" => 'Commentaire supprimé',
+               "type"    => 'danger'
+          );
+          header('location: index.php?action=report');
+     }
 }
