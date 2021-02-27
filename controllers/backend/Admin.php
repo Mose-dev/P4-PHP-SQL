@@ -14,7 +14,7 @@ public function __construct()
           
           require('views/backend/dashboard.php');
      }
-     //Affichage des commentaires signalés ( dashboard ).
+//Affichage des commentaires signalés ( dashboard ).
      public function getReport()
      {
           $title = "Commentaires signalés";
@@ -47,7 +47,7 @@ public function __construct()
           );
           header('location: index.php?action=report');
      }
-     //Liste des adhérants ( dashboard ).
+//Liste des adhérants ( dashboard ).
      public function getUsers()
      {
           $title = "Liste des adhérants";
@@ -65,7 +65,7 @@ public function __construct()
                header('location: index.php?action=getUsers');
           }
      }
-     //Consultation des messages.
+//Consultation des messages.
      public function getMessages()
      {
           $title = "Messages";
