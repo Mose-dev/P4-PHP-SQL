@@ -1,61 +1,89 @@
 <?php
 class Admin //Fonctions de connexion/deconnexion et accès au dashboard.
 {
-     public function connexion()
+public function __construct()
      {
-          $title = "Connexion";
-          if(!empty($_POST['email']) && !empty($_POST['password']))
+          if(!isset($_SESSION['admin']))
           {
-               $userManager = new UserManager;
-               $user = $userManager->getUserByEmail($_POST['email']);
-               if($user == false)
-               {
-                    echo "Utilisateur inconnu";
-               }
-               else 
-               {
-                    if(password_verify($_POST['password'], $user['password']) == true)
-                    {
-                         if($user['role'] == 0)
-                         {
-                              $_SESSION['user'] = $user['id'];
-                              header('location: index.php?action=billetSimple');
-                         }
-                         else
-                         { 
-                              $_SESSION['admin'] = $user['id'] ;
-                              header('location: index.php?action=dashboard');
-                         }
-                    }
-                    else
-                    {
-                         echo 'Le mot de passe est incorrect';
-                    }
-               } 
-          }
-          else 
-          {
-               require('views/frontend/connexion.php');
+               header('location: index.php?action=home');
           }
      }
      public function dashboard()
      {
           $title = "Dashboard";
-          if(isset($_SESSION['admin'])) 
-          {
-               require('views/backend/dashboard.php');
-          }
-          else 
-          {
-               header('location: index.php?action=home');
-          }
+          
+          require('views/backend/dashboard.php');
      }
-     public function deconnexion()
+     //Affichage des commentaires signalés ( dashboard ).
+     public function getReport()
      {
-          unset($_SESSION['user']);
-          unset($_SESSION['admin']);
-          header('location: index.php?action=home');
+          $title = "Commentaires signalés";
+          $commentManager = new CommentManager;
+          $getComment = $commentManager->getReportComment();
+          require('views/backend/getReport.php');
      }
+//Conserver un commentaire signalé.
+     public function keepReport()
+     {
+          if(isset($_GET['id']) && !empty($_GET['id']))
+          {
+               $commentManager = new CommentManager;
+               $keep = $commentManager->keepReport($_GET['id']);
+               $_SESSION['error_message'] = array(
+                    "message" => 'Commentaire conservé',
+                    "type"    => 'success'
+               );
+               header('location: index.php?action=report');
+          } 
+     }
+//Eliminer un commentaire signalé.
+     public function deleteReport()
+     {
+          $commentManager = new CommentManager;
+          $deleteComment = $commentManager->deleteComment($_GET['id']);
+          $_SESSION['error_message'] = array(
+               "message" => 'Commentaire supprimé',
+               "type"    => 'danger'
+          );
+          header('location: index.php?action=report');
+     }
+     //Liste des adhérants ( dashboard ).
+     public function getUsers()
+     {
+          $title = "Liste des adhérants";
+          $userManager = new UserManager;
+          $getUsers = $userManager->getUsers();
+          require('views/backend/getUsers.php');
+     }
+//Eliminer un adhérant.
+     public function deleteUser()
+     {
+          if(isset($_GET['id']) && !empty($_GET['id'])) 
+          { 
+               $userManager = new UserManager;
+               $deleteUser = $userManager->deleteUser($_GET['id']);
+               header('location: index.php?action=getUsers');
+          }
+     }
+     //Consultation des messages.
+     public function getMessages()
+     {
+          $title = "Messages";
+          $postManager = new PostManager;
+          $messages = $postManager->getMessages();
+          require('views/backend/messages.php'); 
+     }
+//Effacer un message.
+     public function deleteMessages()
+     {
+          if(isset($_GET['id']) && !empty($_GET['id'])) 
+          { 
+               $postManager = new PostManager;
+               $deleteMessages = $postManager->deleteMessages($_GET['id']);
+               header('location: index.php?action=getmessages');
+          }
+     }
+     
 }
 
 
