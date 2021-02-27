@@ -7,9 +7,10 @@ class Routes
           $this->billet = new Billet;
           $this->page = new Page;
           $this->user = new User;
-          $this->admin = new Admin;
           $this->comment = new Comment;
           $this->messages = new Messages;
+          $this->connexion = new Connexion;
+
           $this->run();
      }
      public function run()
@@ -34,13 +35,13 @@ class Routes
                          $this->user->inscription();
                     break; 
                     case 'connexion' :
-                         $this->admin->connexion();
+                         $this->connexion->login();
                     break;
                     case 'dashboard' :
-                         $this->admin->dashboard();
+                         (new Admin)->dashboard();
                     break;
                     case 'deconnexion' :
-                         $this->admin->deconnexion();
+                         $this->connexion->deconnexion();
                     break; 
                     case 'addBillet' :
                          (new BilletAdmin)->addBillet();
@@ -61,31 +62,31 @@ class Routes
                          $this->comment->reportComment();
                     break; 
                     case 'keepReport' :
-                         $this->comment->keepReport();
+                         (new Admin)->keepReport();
                     break; 
                     case 'report' :
-                         $this->comment->getReport();
+                         (new Admin)->getReport();
                     break; 
                     case 'deleteReport' :
-                         $this->comment->deleteReport();
+                         (new Admin)->deleteReport();
                     break;
                     case 'deleteBillet' :
                          (new BilletAdmin)->deleteBillet();
                     break; 
                     case 'getUsers' :
-                         $this->user->getUsers();
+                         (new Admin)->getUsers();
                     break; 
                     case 'deleteUser' :
-                         $this->user->deleteUser();
+                         (new Admin)->deleteUser();
                     break; 
                     case 'messages' :
                          $this->messages->postMessages();
                     break;
                     case 'getmessages' :
-                         $this->messages->getMessages();
+                         (new Admin) ->getMessages();
                     break;  
                     case 'deleteMessages' :
-                         $this->messages->deleteMessages();
+                         (new Admin)->deleteMessages();
                     break;  
                }
           }
