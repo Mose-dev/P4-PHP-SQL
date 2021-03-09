@@ -110,6 +110,21 @@ td, th{
      border: 1px solid #fff;
      padding: 10px 20px;
 }
+.buttonCenter{
+     display: flex;
+     justify-content: flex-end;
+}
+#myBtn {
+     background-color: red; 
+     color: white; 
+     cursor: pointer; 
+     padding: 15px; 
+     border-radius: 10px; 
+     font-size: 18px; 
+   }
+#myBtn:hover {
+     background-color: #008000;
+   }
 
 
 
