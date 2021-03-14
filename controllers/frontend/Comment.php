@@ -32,37 +32,5 @@ class Comment //Gestion des commentaires.
                header('location: index.php?action=home');
           } 
      }
-//Affichage des commentaires signalés ( dashboard ).
-     public function getReport()
-     {
-          $title = "Commentaires signalés";
-          $commentManager = new CommentManager;
-          $getComment = $commentManager->getReportComment();
-          require('views/backend/getReport.php');
-     }
-//Conserver un commentaire signalé.
-     public function keepReport()
-     {
-          if(isset($_GET['id']) && !empty($_GET['id']))
-          {
-               $commentManager = new CommentManager;
-               $keep = $commentManager->keepReport($_GET['id']);
-               $_SESSION['error_message'] = array(
-                    "message" => 'Commentaire conservé',
-                    "type"    => 'success'
-               );
-               header('location: index.php?action=report');
-          } 
-     }
-//Eliminer un commentaire signalé.
-     public function deleteReport()
-     {
-          $commentManager = new CommentManager;
-          $deleteComment = $commentManager->deleteComment($_GET['id']);
-          $_SESSION['error_message'] = array(
-               "message" => 'Commentaire supprimé',
-               "type"    => 'danger'
-          );
-          header('location: index.php?action=report');
-     }
+
 }
