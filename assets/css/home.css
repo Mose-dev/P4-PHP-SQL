@@ -44,7 +44,7 @@ body {
 /*Boutons de navigation de la page d'accueil*/    
 .button{
      height: 60px;
-     width: 265px;
+     width: 280px;
      font-size: 20px;
      border-radius: 5px;
      background-color: #ecd8ac;
@@ -125,6 +125,13 @@ td, th{
 #myBtn:hover {
      background-color: #008000;
    }
+@media all and (max-width: 320px){
+
+     .button{
+          height: 60px;
+          width: 245px;
+     }
+}
 
 
 
