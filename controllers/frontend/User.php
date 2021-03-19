@@ -53,22 +53,5 @@ class User //Adhérants.
                require('views/frontend/inscription.php');
           }
      }
-//Liste des adhérants ( dashboard ).
-     public function getUsers()
-     {
-          $title = "Liste des adhérants";
-          $userManager = new UserManager;
-          $getUsers = $userManager->getUsers();
-          require('views/backend/getUsers.php');
-     }
-//Eliminer un adhérant.
-     public function deleteUser()
-     {
-          if(isset($_GET['id']) && !empty($_GET['id'])) 
-          { 
-               $userManager = new UserManager;
-               $deleteUser = $userManager->deleteUser($_GET['id']);
-               header('location: index.php?action=getUsers');
-          }
-     }
+
 }
