@@ -1,6 +1,5 @@
 <?php
 
-
 class Manager {
 
      protected static function connexion(){
