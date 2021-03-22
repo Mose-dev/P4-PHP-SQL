@@ -18,7 +18,7 @@
                               <li class="postContent"><?= $postUser['comment'] ?></li>
                               <li id="link"><a href="index.php?action=commentText&id=<?= $postUser['post_id']?>"class="link" ><i class="fas fa-book-open"></i> Lire</a></li> 
                          </ul>
-                    <?php endforeach; ?>
+                    <?php endforeach; ?> 
           <?php else: ?>
                <?= 'Aucun billet posté.';?>
           <?php  endif;?>
