@@ -44,7 +44,7 @@ _This README was generated with ❤️ by [readme-md-generator](https://github.c
 
 * Website: http://projet4.moise-velez.com
 * Github: [@Mose-dev](https://github.com/Mose-dev)
-* LinkedIn: [@Moise Velez](https://linkedin.com/in/Moïse Velez)
+* LinkedIn:www.linkedin.com/in/moïse-velez 
 
 
 
