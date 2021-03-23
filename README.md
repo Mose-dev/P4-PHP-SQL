@@ -44,21 +44,16 @@ _This README was generated with ❤️ by [readme-md-generator](https://github.c
 
 > Code source du Projet 4 de la formation Développeur Web d'OpenClassrooms, intitulé &#34;Créez un blog pour un écrivain&#34;
 
-### 🏠 [Homepage](projet4.moise-velez.com)
-
-### ✨ [Demo](projet4.moise-velez.com)
-
 ## Author
 
 👤 **Moise Velez**
 
-* Website: projet4.velez-moise.com
+* Website: http://projet4.velez-moise.com
 * Github: [@Mose-dev](https://github.com/Mose-dev)
 * LinkedIn: [@Moise Velez](https://linkedin.com/in/Moise Velez)
 
-## Show your support
 
-Give a ⭐️ if this project helped you!
 
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
+
+
