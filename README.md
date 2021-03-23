@@ -1,4 +1,4 @@
-><h1 align="center">Projet-1-HTM5-CSS3 👋</h1>
+><h1 align="center">Projet 4 PHP/SQL 👋</h1>
 
 <p>Code source du Projet 4 de la formation Développeur Web d'OpenClassrooms, intitulé "Créez un blog pour un écrivain"</p>
 
