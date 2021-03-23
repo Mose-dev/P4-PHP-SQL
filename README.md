@@ -34,7 +34,6 @@ Vous développerez une application de blog simple en PHP et avec une base de don
     <li>API TinyMCE</li>
 </ul>
 
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)
 ## Author
 
 👤 **Moïse Velez**
@@ -42,6 +41,7 @@ _This README was generated with ❤️ by [readme-md-generator](https://github.c
 * Website: http://projet4.moise-velez.com
 * Github: [@Mose-dev](https://github.com/Mose-dev)
 * LinkedIn:www.linkedin.com/in/moïse-velez 
+* _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)
 
 
 
