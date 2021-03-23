@@ -35,12 +35,9 @@ Vous développerez une application de blog simple en PHP et avec une base de don
 </ul>
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)
-
-> Code source du Projet 4 de la formation Développeur Web d'OpenClassrooms, intitulé &#34;Créez un blog pour un écrivain&#34;
-
 ## Author
 
-👤 **Moise Velez**
+👤 **Moïse Velez**
 
 * Website: http://projet4.moise-velez.com
 * Github: [@Mose-dev](https://github.com/Mose-dev)
