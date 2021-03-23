@@ -34,13 +34,7 @@ Vous développerez une application de blog simple en PHP et avec une base de don
     <li>API TinyMCE</li>
 </ul>
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)
-
 
 > Code source du Projet 4 de la formation Développeur Web d'OpenClassrooms, intitulé &#34;Créez un blog pour un écrivain&#34;
 
@@ -48,9 +42,9 @@ _This README was generated with ❤️ by [readme-md-generator](https://github.c
 
 👤 **Moise Velez**
 
-* Website: http://projet4.velez-moise.com
+* Website: http://projet4.moise-velez.com
 * Github: [@Mose-dev](https://github.com/Mose-dev)
-* LinkedIn: [@Moise Velez](https://linkedin.com/in/Moise Velez)
+* LinkedIn: [@Moise Velez](https://linkedin.com/in/Moïse Velez)
 
 
 
