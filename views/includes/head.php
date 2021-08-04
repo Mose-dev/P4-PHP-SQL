@@ -19,9 +19,52 @@
 <script src="https://kit.fontawesome.com/9a1c038275.js" crossorigin="anonymous"></script>
 <script src="https://cdn.tiny.cloud/1/xr77zm2lop8kch7258caeqxxm4y8zdkit2utu4b38f8m75ck/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
-<script>tinymce.init({selector: "#mytextarea"});</script> 
+<script>tinymce.init({selector: "#mytextarea"});</script>
+<head>
+  <!--Bouton Go top-->
+  <style>
+    a#cRetour{
+      border-radius:3px;
+      padding:10px;
+      font-size:15px;
+      text-align:center;
+      color:#fff;
+      background:red;
+      position:fixed;
+      right:20px;
+      opacity:1;
+      z-index:99999;
+      transition:all ease-in 0.2s;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      text-decoration: none;
+    }
+    a#cRetour:before{ content: "\25b2"; }
+    a#cRetour:hover{
+      background:rgba(0, 0, 0, 1);
+      transition:all ease-in 0.2s;
+    }
+    a#cRetour.cInvisible{
+      bottom:-35px;
+      opacity:0;
+      transition:all ease-in 0.5s;
+    }
 
+    a#cRetour.cVisible{
+      bottom:20px;
+      opacity:1;
+    }
+  </style> 
 </head>
 <body>
+<div id="haut"></div> 
+<div><a id="cRetour" class="cInvisible" href="#haut"></a></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.onscroll = function(ev) {
+      document.getElementById("cRetour").className = (window.pageYOffset > 100) ? "cVisible" : "cInvisible";
+    };
+  });
+</script>
 
 
