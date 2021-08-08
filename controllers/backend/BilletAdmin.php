@@ -19,6 +19,10 @@ class BilletAdmin//Gestion des billets.
                {
                     $postManager = new PostManager;
                     $postManager->addBillet($_POST['title'], $_POST['mytextarea']);
+                    $_SESSION['error_message'] = array(
+                         "message" => 'Nouveau chapitre affiché avec succés',
+                         "type"    => 'success'
+                    );
                     header('Location: index.php?action=billetSimple');  
                }
                else
@@ -31,7 +35,7 @@ class BilletAdmin//Gestion des billets.
                require('views/backend/addBillet.php');
           }
      }
-//Effacer un billet.
+//Eliminer un billet.
      public function deleteBillet()
      {
           $postManager = new PostManager;
@@ -39,7 +43,11 @@ class BilletAdmin//Gestion des billets.
           { 
                $delete = $postManager->deleteBillet($_GET['id']);
           }
-          header('location: index.php?action=dashboard');
+          $_SESSION['error_message'] = array(
+               "message" => 'Chapitre éliminé avec succés',
+               "type"    => 'success'
+          );
+          header('location: index.php?action=billetSimple');
      }
 //Editer un billet pour sa correction. 
      public function displayBillet()
@@ -56,6 +64,10 @@ class BilletAdmin//Gestion des billets.
           if(isset($_GET['id']))
           { 
                $postManager->correctBillet($_GET['id'],$_POST['title'], $_POST['mytextarea']);
+               $_SESSION['error_message'] = array(
+                    "message" => 'Chapitre corrigé avec succés',
+                    "type"    => 'success'
+               );
                header('location: index.php?action=billetSimple');
           }
           else

@@ -20,6 +20,10 @@ class Connexion //Fonctions de connexion/deconnexion et accès au dashboard.
                          if($user['role'] == 0)
                          {
                               $_SESSION['user'] = $user['id'];
+                              $_SESSION['error_message'] = array(
+                                   "message" => 'Bienvenue vous venez de vous connecter',
+                                   "type"    => 'success'
+                              );
                               header('location: index.php?action=billetSimple');
                          }
                          else
@@ -44,6 +48,10 @@ class Connexion //Fonctions de connexion/deconnexion et accès au dashboard.
      {
           unset($_SESSION['user']);
           unset($_SESSION['admin']);
+          $_SESSION['error_message'] = array(
+               "message" => 'Merci de votre visite à bientôt',
+               "type"    => 'success'
+          );
           header('location: index.php?action=home');
      }
 }

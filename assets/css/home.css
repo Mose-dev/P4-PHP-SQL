@@ -13,6 +13,16 @@ body {
           url('snowtt.ttf') format('truetype'),
           url('snowtt.svg') format('svg');
  }
+ /*Barre du menu de navigation*/
+#navbarContent{
+     justify-content: flex-end;
+ }
+ .nav-item a{
+      font-size: 1.4em;
+ }
+ .navbar-expand-lg{
+      background: #000000;
+ }
  /*Containers*/
 .container{
      font-family: roboto, sans-serif;
@@ -23,16 +33,6 @@ body {
      border: 2px solid #ffffffff;
      background-color: #ecd8ac;
      opacity: 0.8;
-}
-/*Barre du menu de navigation*/
-#navbarContent{
-    justify-content: flex-end;
-}
-.nav-item a{
-     font-size: 1.4em;
-}
-.navbar-expand-lg{
-     background: #000000;
 }
 /*Texte d'introduction de la page d'accueil*/
 .snow{
@@ -51,22 +51,6 @@ body {
      border: 2px solid #fff;
      margin-top: 15%;
 }
-/*Encart de bienvenue et demande de 
-commentaire pour l'adhérant
-page d'accueil et page commentText*/
-.welcome{
-     text-align: center;
-     padding: 10px;
-     margin: 5px;
-     width: 60%;
-     height: auto;
-     background-color:#58c058;
-     font-weight: bold;
-     border: 2px solid #ffffffff;
-}
-.welcomewidth{
-     width: 58.5%;
-}
 /*Page billetSimple*/
 .postContainer{
      margin-top: 100px;
@@ -78,24 +62,19 @@ page d'accueil et page commentText*/
      background-color:#ecd8ac;
      border-radius: 5px;
 }
-/*Page commentText 
-/*bouton envoi du commentaire*/
+/*Page CommentText
+Bouton envoi du commentaire*/
 #btn-on{
      border-radius: 10px;
      background-color: #ecd8ac;
 }
-/*Background de l'encart*/
+/*Background de l'encart du commentaire*/
 .connect2{
      background-color: #ecd8ac;
 }
-/* Page insription*/
+/*Page insription*/
 #containerwidth{
      width: 320px;
-}
-/*Page contact*/
-.checkbox{
-     text-align: center;
-     margin: 20px;
 }
 /*Page getUsers*/
 .contain{
@@ -105,7 +84,7 @@ page d'accueil et page commentText*/
 footer{
      background: #000000;
 }
-/*Tableaux adhérants et messages*/  
+/*Tableaux adhérents et messages dans Admin*/  
 td, th{
      border: 1px solid #fff;
      padding: 10px 20px;
@@ -114,17 +93,6 @@ td, th{
      display: flex;
      justify-content: flex-end;
 }
-#myBtn {
-     background-color: red; 
-     color: white; 
-     cursor: pointer; 
-     padding: 15px; 
-     border-radius: 10px; 
-     font-size: 18px; 
-   }
-#myBtn:hover {
-     background-color: #008000;
-   }
 @media all and (max-width: 320px){
 
      .button{

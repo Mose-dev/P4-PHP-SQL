@@ -1,6 +1,15 @@
 <?php require 'views/includes/head.php'; ?>
 <?php require 'views/includes/menu.php'; ?>
 
+<!--Message flash-->
+<div class="postContainer contain">
+     <?php if(isset($_SESSION['error_message'])): ?> 
+               <div class="alert-explode alert alert-success w-100 text-center bg-success text-white border-light" role="alert"<?= $_SESSION['error_message']['type'] ?>>
+                    <?= $_SESSION['error_message']['message']; ?>
+               </div>
+          <?php endif; ?>
+     <?php unset($_SESSION['error_message']) ?>
+</div>   
 <!--Jumbotron-->
 <div class="container text-center">
      <div class="row">
@@ -44,7 +53,7 @@
           <p><a href="index.php?action=dashboard" class="btn btn-success font-weight-bold border-white mt-3">Retour au dashboard</a></p>
      <?php endif; ?>
 </div>
-<!--Affichage commentaire du billet-->
+<!--Affichage commentaires du billet-->
 <div class="container p-5" id="background">
      <div class="row">
           <div class="col">

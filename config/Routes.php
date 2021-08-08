@@ -53,7 +53,7 @@ class Routes
                          (new BilletAdmin)->correctBillet();
                     break; 
                     case 'commentText' :
-                         $this->billet->commentStory();
+                         $this->comment->commentStory();
                     break; 
                     case 'addComment' :
                          $this->comment->addComment();

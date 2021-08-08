@@ -45,7 +45,11 @@ class Messages //Gestion des messages.
                if ($checkForm == true) 
                {
                     $postManager->messages(strip_tags($_POST['firstname']), strip_tags($_POST['name']), strip_tags($_POST['email']),strip_tags($_POST['title']), strip_tags($_POST['content']));
-                     header('location: index.php?action=home');   
+                    $_SESSION['error_message'] = array(
+                         "message" => 'Message envoyé avec succès',
+                         "type"    => 'success'
+                    );
+                    header('location: index.php?action=home');   
                }
                else 
                {

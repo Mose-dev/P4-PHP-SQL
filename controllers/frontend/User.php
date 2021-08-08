@@ -1,6 +1,6 @@
 <?php
 
-class User //Adhérants.
+class User //Adhérents.
 {
 //Inscription.
      public function inscription()
@@ -40,7 +40,11 @@ class User //Adhérants.
                if ($checkForm == true) 
                {
                     $userManager->addUser(strip_tags($_POST["name"]),filter_var($_POST['email'], FILTER_VALIDATE_EMAIL), $password); 
-                     header('location: index.php?action=home');   
+                    $_SESSION['error_message'] = array(
+                         "message" => 'Bienvenue vous pouvez désormais vous connecter',
+                         "type"    => 'success'
+                    );
+                    header('location: index.php?action=home');   
                }
                else 
                {

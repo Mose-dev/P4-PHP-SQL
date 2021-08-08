@@ -71,7 +71,7 @@
                               <i class="fas fa-users fa-2x text-primary"></i>
                          </div>
                          <div class="font-weight-bold text-uppercase">
-                              <a class="text-primary" href="index.php?action=getUsers">Adhérants</a> 
+                              <a class="text-primary" href="index.php?action=getUsers">Adhérents</a> 
                          </div>
                     </div>
                </div>

@@ -3,6 +3,8 @@ require 'Manager.php';
 
 class PostManager extends Manager
 {
+//Gestion des billets.
+
 //Ajouter un billet.
       public function addBillet($title, $mytextarea)
      {
@@ -48,6 +50,15 @@ class PostManager extends Manager
           $request->execute([$post_id, $author, $comment, 0]);
          
      }
+//Effacer un billet.
+public function deleteBillet($id)
+{
+     $request = Manager::connexion()->prepare('DELETE FROM posts WHERE id= ?');
+     $request->execute([$id]);
+}
+
+//Commentaires.
+
 //Afficher le commentaire.
      public function getOneComment($post_id)
      {
@@ -63,12 +74,6 @@ class PostManager extends Manager
           $request->execute();
 
           return $request->fetchAll();
-     }
-//Effacer un billet.
-     public function deleteBillet($id)
-     {
-          $request = Manager::connexion()->prepare('DELETE FROM posts WHERE id= ?');
-          $request->execute([$id]);
      }
 //Inserer un message.
      public function messages( $firstname, $name, $email, $title, $content)

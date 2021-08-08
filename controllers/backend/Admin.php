@@ -1,5 +1,5 @@
 <?php
-class Admin //Fonctions de connexion/deconnexion et accès au dashboard.
+class Admin //Administration.
 {
 public function __construct()
      {
@@ -30,7 +30,7 @@ public function __construct()
                $commentManager = new CommentManager;
                $keep = $commentManager->keepReport($_GET['id']);
                $_SESSION['error_message'] = array(
-                    "message" => 'Commentaire conservé',
+                    "message" => 'Commentaire conservé avec succès',
                     "type"    => 'success'
                );
                header('location: index.php?action=report');
@@ -42,12 +42,12 @@ public function __construct()
           $commentManager = new CommentManager;
           $deleteComment = $commentManager->deleteComment($_GET['id']);
           $_SESSION['error_message'] = array(
-               "message" => 'Commentaire supprimé',
-               "type"    => 'danger'
+               "message" => 'Commentaire supprimé avec succès',
+               "type"    => 'success'
           );
           header('location: index.php?action=report');
      }
-//Liste des adhérants ( dashboard ).
+//Liste des adhérents ( dashboard ).
      public function getUsers()
      {
           $title = "Liste des adhérants";
@@ -55,13 +55,17 @@ public function __construct()
           $getUsers = $userManager->getUsers();
           require('views/backend/getUsers.php');
      }
-//Eliminer un adhérant.
+//Eliminer un adhérent.
      public function deleteUser()
      {
           if(isset($_GET['id']) && !empty($_GET['id'])) 
           { 
                $userManager = new UserManager;
                $deleteUser = $userManager->deleteUser($_GET['id']);
+               $_SESSION['error_message'] = array(
+                    "message" => 'Adhérent supprimé avec succès',
+                    "type"    => 'success'
+               );
                header('location: index.php?action=getUsers');
           }
      }
@@ -80,6 +84,10 @@ public function __construct()
           { 
                $postManager = new PostManager;
                $deleteMessages = $postManager->deleteMessages($_GET['id']);
+               $_SESSION['error_message'] = array(
+                    "message" => 'Message supprimé avec succès',
+                    "type"    => 'success'
+               );
                header('location: index.php?action=getmessages');
           }
      }
