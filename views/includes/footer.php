@@ -1,5 +1,5 @@
 <footer>
-     <div class="container">
+     <div class="container mb-0">
           <div class="row">
                <div class="mb-5 col-8 offset-2 col-md-4 offset-md-0">
                     <h5 class="text-uppercase text-white">Plan du site</h5>

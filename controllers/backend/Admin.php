@@ -11,7 +11,6 @@ public function __construct()
      public function dashboard()
      {
           $title = "Dashboard";
-          
           require('views/backend/dashboard.php');
      }
 //Affichage des commentaires signalés ( dashboard ).

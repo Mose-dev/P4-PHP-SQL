@@ -1,10 +1,8 @@
 <?php
 require 'Manager.php';
 
-class PostManager extends Manager
+class PostManager extends Manager//Gestion des billets.
 {
-//Gestion des billets.
-
 //Ajouter un billet.
       public function addBillet($title, $mytextarea)
      {
@@ -34,8 +32,8 @@ class PostManager extends Manager
 
           return $request->fetchAll();
      }
-     public function getOneBillet($id)
 //Jointure entre table pour affichage du billet.
+     public function getOneBillet($id)
      {
           $request = Manager::connexion()->prepare("SELECT *, p.id AS postId FROM posts AS p LEFT JOIN comments ON comments.post_id= p.id WHERE p.id= $id ORDER BY comments.comment_date DESC");
           $request->execute();
@@ -57,7 +55,7 @@ public function deleteBillet($id)
      $request->execute([$id]);
 }
 
-//Commentaires.
+//Gestion des commentaires.
 
 //Afficher le commentaire.
      public function getOneComment($post_id)
@@ -67,14 +65,9 @@ public function deleteBillet($id)
 
           return $request->fetch();
      }
-//Signaler un commentaire.
-     public function report()
-     {
-          $request = Manager::connexion()->prepare('SELECT * FROM comments WHERE report= 1 ORDER BY comment_date ');
-          $request->execute();
 
-          return $request->fetchAll();
-     }
+//Gestion des messages.
+
 //Inserer un message.
      public function messages( $firstname, $name, $email, $title, $content)
      {

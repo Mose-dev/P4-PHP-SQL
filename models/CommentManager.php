@@ -1,7 +1,7 @@
 <?php
 require 'Manager.php';
 
-class CommentManager extends Manager
+class CommentManager extends Manager //Gestion des commentaires.
 {
 //Signalement d'un commentaire.
      public function report($id)
